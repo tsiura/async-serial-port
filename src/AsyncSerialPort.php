@@ -111,7 +111,7 @@ final class AsyncSerialPort
             return sprintf(
                 '/bin/stty -F %s %d raw -echo -echoe -echok -clocal cs8 %s',
                 $this->configuration->device,
-                $this->configuration->baud,
+                $this->configuration->baud->value,
                 $this->configuration->octs ? 'crtscts' : '-crtscts'
             );
         } elseif (strtolower(substr($platform, 0, 7)) === 'windows') {
